@@ -32,10 +32,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
   <script>
   $(document).ready(function(){
-    alert("Document chargé");
+   // alert("Document chargé");
 
     $(".modify").on('change',function() {
-      alert("Modification !");
+     // alert("Modification !");
 
       $.post(
 
@@ -264,7 +264,21 @@
 </div>
 </div>
 <div class = "row">
+
   <div class="col-lg-4" id="container1" style="position: relative; width: 500px; height: 400px;">
+    <ul id="scrollLeft">
+      <li>Choose a first entry :
+        <ul>
+          <form name ="form1" class="modify">
+            <input type = "radio"  name = "data1" value = "Tmin" onclick="fonction1()" checked>Temperature Min
+            <input type = "radio"  name = "data1" value = "Tmax" onclick="fonction1()">Temperature Max
+          </form>
+        </ul>
+      </li>
+    </ul>
+  </div>
+ 
+  <div class="col-lg-4" id="container2" style="position: relative; width: 500px; height: 400px;">
     <ul id="scrollLeft">
       <li>Choose a first entry :
         <ul>
@@ -276,42 +290,546 @@
       </li>
     </ul>
   </div>
-  <div class="col-lg-8" id="container2" style="position: relative; width: 500px; height: 400px;">
+  
+ 
+
+  <div class="col-lg-8" id="container4" style="position: relative; width: 500px; height: 400px;">
     <ul id="scrollRight">
       <li>Choose a second entry :
         <ul>
           <form name = "form2" class="modify">
             <input type = "radio"  name = "data2" value = "suicide" onclick="fonction2()">Suicide
-            <input type = "radio"  name = "data2" value = "car" onclick="fonction2()">Car crash
-            <input type = "radio"  name = "data2" value = "natality" onclick="fonction2()" checked>Natality Rate
+            <input type = "radio"  name = "data2" value = "car" onclick="fonction2()" checked>Car crash
+            <input type = "radio"  name = "data2" value = "natality" onclick="fonction2()" >Natality Rate
             <input type = "radio"  name = "data2" value = "air" onclick="fonction2()">Air Particle Matter
           </form>
         </ul>
       </li>
     </ul>
   </div>
+
+
+  <div class="col-lg-8" id="container3" style="position: relative; width: 500px; height: 400px;">
+    <ul id="scrollRight">
+      <li>Choose a second entry :
+        <ul>
+          <form name = "form2" class="modify">
+            <input type = "radio"  name = "data2" value = "suicide" onclick="fonction2()" checked>Suicide
+            <input type = "radio"  name = "data2" value = "car" onclick="fonction2()">Car crash
+            <input type = "radio"  name = "data2" value = "natality" onclick="fonction2()">Natality Rate
+            <input type = "radio"  name = "data2" value = "air" onclick="fonction2()">Air Particle Matter
+          </form>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="col-lg-8" id="container5" style="position: relative; width: 500px; height: 400px;">
+    <ul id="scrollRight">
+      <li>Choose a second entry :
+        <ul>
+          <form name = "form2" class="modify">
+            <input type = "radio"  name = "data2" value = "suicide" onclick="fonction2()" >Suicide
+            <input type = "radio"  name = "data2" value = "car" onclick="fonction2()">Car crash
+            <input type = "radio"  name = "data2" value = "natality" onclick="fonction2()">Natality Rate
+            <input type = "radio"  name = "data2" value = "air" onclick="fonction2()" checked>Air Particle Matter
+          </form>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+
+<div class="col-lg-8" id="container6" style="position: relative; width: 500px; height: 400px;">
+    <ul id="scrollRight">
+      <li>Choose a second entry :
+        <ul>
+          <form name = "form2" class="modify">
+            <input type = "radio"  name = "data2" value = "suicide" onclick="fonction2()" >Suicide
+            <input type = "radio"  name = "data2" value = "car" onclick="fonction2()">Car crash
+            <input type = "radio"  name = "data2" value = "natality" onclick="fonction2()" checked>Natality Rate
+            <input type = "radio"  name = "data2" value = "air" onclick="fonction2()" >Air Particle Matter
+          </form>
+        </ul>
+      </li>
+    </ul>
+  </div>
 </div>
+
 <script>
 
-var map1 = new Datamap({
+var map1 = new Datamap({ //TMIN
   element: document.getElementById('container1'),
   scope: 'usa',
   fills: {
-    '85+':	 '#B40404',
-    '80-85': '#DF0101',
-    '75-80': '#FF0000',
-    '70-75': '#FE2E2E',
-    '65-70': '#FE642E',
-    '60-65': '#FAAC58',
-    '55-60': '#F7BE81',
-    '50-55': '#F3F781',
-    '45-50': '#D8F781',
-    '40-45': '#9FF781',
-    '35-40': '#BCF5A9',
-    '30-35': '#819FF7',
-    '25-30': '#2E64FE',
-    '20-25': '#0040FF',
-    '20-': '#013ADF',
+			'320+':     '#B40404',
+            '280-320': '#DF0101',
+            '240-280': '#FF0000',
+            '200-240': '#FE2E2E',
+            '160-200': '#FE642E',
+            '120-160': '#FAAC58',
+            '80-120': '#F7BE81',
+            '40-80': '#F3F781',
+            '0-40': '#D8F781',
+            '*40-0': '#9FF781',
+            '*80-*40': '#BCF5A9',
+            '*120-*80': '#819FF7',
+            '*160-*120': '#2E64FE',
+            '*200-*160': '#0040FF',
+            '*200-': '#013ADF',
+    UNKNOWN: 'grey',
+    defaultFill: 'grey'
+  },
+  data: {
+    <!--Alabama-->
+    AL: {
+      fillKey: '200-240'
+    },
+    <!--Alaska-->
+    AK: {
+      fillKey:'UNKNOWN'
+    },
+    <!--Arizona-->
+    AZ: {
+      fillKey:'75-80'
+    },
+    <!--Arkansas-->
+    AR: {
+      fillKey:'35-40'
+    },
+    <!--California-->
+    CA: {
+      fillKey: '85+'
+    },
+    <!--Colorado-->
+    CO: {
+      fillKey: '70-75'
+    },
+    <!--Connecticut-->
+    CT: {
+      fillKey: '80-85'
+    },
+    <!--Delaware-->
+    DE: {
+      fillKey: '85+'
+    },
+    <!--Florida-->
+    FL: {
+      fillKey: '85+'
+    },
+    <!--Georgia-->
+    GA: {
+      fillKey: '60-65'
+    },
+    <!--Hawaii-->
+    HI: {
+      fillKey: 'UNKNOWN'
+    },
+    <!--Idaho-->
+    ID: {
+      fillKey: '80-85'
+    },
+    <!--Illinois-->
+    IL: {
+      fillKey: '65-70'
+    },
+    <!--Indiana-->
+    IN: {
+      fillKey: '85+'
+    },
+    <!--Iowa-->
+    IA: {
+      fillKey: '85+'
+    },
+    <!--Kansas-->
+    KS: {
+      fillKey: '85+'
+    },
+    <!--Kentucky-->
+    KY: {
+      fillKey: '85+'
+    },
+    <!--Lousiana-->
+    LA: {
+      fillKey: '85+'
+    },
+    <!--Maine-->
+    ME: {
+      fillKey: '85+'
+    },
+    <!--Maryland-->
+    MD: {
+      fillKey: '85+'
+    },
+    <!--Massachussets-->
+    MA: {
+      fillKey: '85+'
+    },
+    <!--Michigan-->
+    MI: {
+      fillKey: '85+'
+    },
+    <!--Minnesota-->
+    MN: {
+      fillKey: '85+'
+    },
+    <!--Mississippi-->
+    MS: {
+      fillKey: '85+'
+    },
+    <!--Misouri-->
+    MO: {
+      fillKey: '85+'
+    },
+    <!--Montana-->
+    MT: {
+      fillKey: '85+'
+    },
+    <!--Nebraska-->
+    NE: {
+      fillKey: '85+'
+    },
+    <!--Nevada-->
+    NV: {
+      fillKey: '85+'
+    },
+    <!--New Hampshire-->
+    NH: {
+      fillKey: '85+'
+    },
+    <!--New Jersey-->
+    NJ: {
+      fillKey: '60-65'
+    },
+    <!--New Mexico-->
+    NM: {
+      fillKey: '85+'
+    },
+    <!--New York-->
+    NY: {
+      fillKey: '65-70'
+    },
+    <!--North Carolina-->
+    NC: {
+      fillKey: '85+'
+    },
+    <!--North Dakota-->
+    ND: {
+      fillKey: '85+'
+    },
+    <!--Ohio-->
+    OH: {
+      fillKey: '85+'
+    },
+    <!--Oklahoma-->
+    OK: {
+      fillKey: '85+'
+    },
+    <!--Oregon-->
+    OR: {
+      fillKey: '85+'
+    },
+    <!--Pennsylvania-->
+    PA: {
+      fillKey: '30-35'
+    },
+    <!--Rhode Island-->
+    RI: {
+      fillKey: 'UNKNOWN'
+    },
+    <!--South Carolina-->
+    SC: {
+      fillKey: '85+'
+    },
+    <!--South Dakota-->
+    SD: {
+      fillKey: '85+'
+    },
+    <!--Tennessee-->
+    TN: {
+      fillKey: '40-45'
+    },
+    <!--Texas-->
+    TX: {
+      fillKey: '85+'
+    },
+    <!--Utha-->
+    UT: {
+      fillKey: '70-75'
+    },
+    <!--Vermont-->
+    VT: {
+      fillKey: '85+'
+    },
+    <!--Virginia-->
+    VA: {
+      fillKey: '55-60'
+    },
+    <!--Washington-->
+    WA: {
+      fillKey: '85+'
+    },
+    <!--West Virginia-->
+    WV: {
+      fillKey: '65-70'
+    },
+    <!--Wisconsin-->
+    WI: {
+      fillKey: '85+'
+    },
+    <!--Wyoming-->
+    WY: {
+      fillKey: '85+'
+    }
+  }
+});
+
+var map2 = new Datamap({     //Tmax
+  element: document.getElementById('container2'),
+  scope: 'usa',
+  fills: {
+			'500+':     '#B40404',
+            '450-500': '#DF0101',
+            '400-450': '#FF0000',
+            '350-400': '#FE2E2E',
+            '300-350': '#FE642E',
+            '250-300': '#FAAC58',
+            '200-250': '#F7BE81',
+            '150-200': '#F3F781',
+            '100-150': '#D8F781',
+            '50-100': '#9FF781',
+            '0-50': '#BCF5A9',
+            '*50-0': '#819FF7',
+            '*100-*50': '#2E64FE',
+            '*200-*100': '#0040FF',
+            '*200-': '#013ADF',
+    UNKNOWN: 'grey',
+    defaultFill: 'grey'
+  },
+  data: {
+    <!--Alabama-->
+    AL: {
+      fillKey: '450-500'
+    },
+    <!--Alaska-->
+    AK: {
+      fillKey:'UNKNOWN'
+    },
+    <!--Arizona-->
+    AZ: {
+      fillKey:'500+'
+    },
+    <!--Arkansas-->
+    AR: {
+      fillKey:'35-40'
+    },
+    <!--California-->
+    CA: {
+      fillKey: '85+'
+    },
+    <!--Colorado-->
+    CO: {
+      fillKey: '70-75'
+    },
+    <!--Connecticut-->
+    CT: {
+      fillKey: '80-85'
+    },
+    <!--Delaware-->
+    DE: {
+      fillKey: '85+'
+    },
+    <!--Florida-->
+    FL: {
+      fillKey: '85+'
+    },
+    <!--Georgia-->
+    GA: {
+      fillKey: '60-65'
+    },
+    <!--Hawaii-->
+    HI: {
+      fillKey: 'UNKNOWN'
+    },
+    <!--Idaho-->
+    ID: {
+      fillKey: '80-85'
+    },
+    <!--Illinois-->
+    IL: {
+      fillKey: '65-70'
+    },
+    <!--Indiana-->
+    IN: {
+      fillKey: '85+'
+    },
+    <!--Iowa-->
+    IA: {
+      fillKey: '85+'
+    },
+    <!--Kansas-->
+    KS: {
+      fillKey: '85+'
+    },
+    <!--Kentucky-->
+    KY: {
+      fillKey: '85+'
+    },
+    <!--Lousiana-->
+    LA: {
+      fillKey: '85+'
+    },
+    <!--Maine-->
+    ME: {
+      fillKey: '85+'
+    },
+    <!--Maryland-->
+    MD: {
+      fillKey: '85+'
+    },
+    <!--Massachussets-->
+    MA: {
+      fillKey: '85+'
+    },
+    <!--Michigan-->
+    MI: {
+      fillKey: '85+'
+    },
+    <!--Minnesota-->
+    MN: {
+      fillKey: '85+'
+    },
+    <!--Mississippi-->
+    MS: {
+      fillKey: '85+'
+    },
+    <!--Misouri-->
+    MO: {
+      fillKey: '85+'
+    },
+    <!--Montana-->
+    MT: {
+      fillKey: '85+'
+    },
+    <!--Nebraska-->
+    NE: {
+      fillKey: '85+'
+    },
+    <!--Nevada-->
+    NV: {
+      fillKey: '85+'
+    },
+    <!--New Hampshire-->
+    NH: {
+      fillKey: '85+'
+    },
+    <!--New Jersey-->
+    NJ: {
+      fillKey: '60-65'
+    },
+    <!--New Mexico-->
+    NM: {
+      fillKey: '85+'
+    },
+    <!--New York-->
+    NY: {
+      fillKey: '65-70'
+    },
+    <!--North Carolina-->
+    NC: {
+      fillKey: '85+'
+    },
+    <!--North Dakota-->
+    ND: {
+      fillKey: '85+'
+    },
+    <!--Ohio-->
+    OH: {
+      fillKey: '85+'
+    },
+    <!--Oklahoma-->
+    OK: {
+      fillKey: '85+'
+    },
+    <!--Oregon-->
+    OR: {
+      fillKey: '85+'
+    },
+    <!--Pennsylvania-->
+    PA: {
+      fillKey: '30-35'
+    },
+    <!--Rhode Island-->
+    RI: {
+      fillKey: 'UNKNOWN'
+    },
+    <!--South Carolina-->
+    SC: {
+      fillKey: '85+'
+    },
+    <!--South Dakota-->
+    SD: {
+      fillKey: '85+'
+    },
+    <!--Tennessee-->
+    TN: {
+      fillKey: '40-45'
+    },
+    <!--Texas-->
+    TX: {
+      fillKey: '85+'
+    },
+    <!--Utha-->
+    UT: {
+      fillKey: '70-75'
+    },
+    <!--Vermont-->
+    VT: {
+      fillKey: '85+'
+    },
+    <!--Virginia-->
+    VA: {
+      fillKey: '55-60'
+    },
+    <!--Washington-->
+    WA: {
+      fillKey: '85+'
+    },
+    <!--West Virginia-->
+    WV: {
+      fillKey: '65-70'
+    },
+    <!--Wisconsin-->
+    WI: {
+      fillKey: '85+'
+    },
+    <!--Wyoming-->
+    WY: {
+      fillKey: '85+'
+    }
+  }
+});
+
+var map3 = new Datamap({    //suicide
+  element: document.getElementById('container3'),
+  scope: 'usa',
+  fills: {
+			'350+': '#B40404',
+            '300-350': '#DF0101',
+            '250-300': '#FF0000',
+            '200-250': '#FE2E2E',
+            '150-200': '#FE642E',
+            '100-150': '#FAAC58',
+            '80-100': '#F7BE81',
+            '60-80': '#F3F781',
+            '50-60': '#D8F781',
+            '40-50': '#9FF781',
+            '30-40': '#BCF5A9',
+            '20-30': '#819FF7',
+            '15-20': '#2E64FE',
+            '10-15': '#0040FF',
+            '10-': '#013ADF',
+
     UNKNOWN: 'grey',
     defaultFill: 'grey'
   },
@@ -519,25 +1037,478 @@ var map1 = new Datamap({
   }
 });
 
-var map2 = new Datamap({
-  element: document.getElementById('container2'),
+var map4 = new Datamap({    //car crashes
+  element: document.getElementById('container4'),
   scope: 'usa',
   fills: {
-    '85+':	 '#B40404',
-    '80-85': '#DF0101',
-    '75-80': '#FF0000',
-    '70-75': '#FE2E2E',
-    '65-70': '#FE642E',
-    '60-65': '#FAAC58',
-    '55-60': '#F7BE81',
-    '50-55': '#F3F781',
-    '45-50': '#D8F781',
-    '40-45': '#9FF781',
-    '35-40': '#BCF5A9',
-    '30-35': '#819FF7',
-    '25-30': '#2E64FE',
-    '20-25': '#0040FF',
-    '20-': '#013ADF',
+			'400+':     '#B40404',
+            '350-400': '#DF0101',
+            '300-350': '#FF0000',
+            '250-300': '#FE2E2E',
+            '200-250': '#FE642E',
+            '150-200': '#FAAC58',
+            '125-150': '#F7BE81',
+            '100-125': '#F3F781',
+            '80-100': '#D8F781',
+            '60-80': '#9FF781',
+            '40-60': '#BCF5A9',
+            '30-40': '#819FF7',
+            '20-30': '#2E64FE',
+            '10-20': '#0040FF',
+            '10-': '#013ADF',
+    UNKNOWN: 'grey',
+    defaultFill: 'grey'
+  },
+  data: {
+    <!--Alabama-->
+    AL: {
+      fillKey: '55-60'
+    },
+    <!--Alaska-->
+    AK: {
+      fillKey:'UNKNOWN'
+    },
+    <!--Arizona-->
+    AZ: {
+      fillKey:'75-80'
+    },
+    <!--Arkansas-->
+    AR: {
+      fillKey:'35-40'
+    },
+    <!--California-->
+    CA: {
+      fillKey: '85+'
+    },
+    <!--Colorado-->
+    CO: {
+      fillKey: '70-75'
+    },
+    <!--Connecticut-->
+    CT: {
+      fillKey: '80-85'
+    },
+    <!--Delaware-->
+    DE: {
+      fillKey: '85+'
+    },
+    <!--Florida-->
+    FL: {
+      fillKey: '85+'
+    },
+    <!--Georgia-->
+    GA: {
+      fillKey: '60-65'
+    },
+    <!--Hawaii-->
+    HI: {
+      fillKey: 'UNKNOWN'
+    },
+    <!--Idaho-->
+    ID: {
+      fillKey: '80-85'
+    },
+    <!--Illinois-->
+    IL: {
+      fillKey: '65-70'
+    },
+    <!--Indiana-->
+    IN: {
+      fillKey: '85+'
+    },
+    <!--Iowa-->
+    IA: {
+      fillKey: '85+'
+    },
+    <!--Kansas-->
+    KS: {
+      fillKey: '85+'
+    },
+    <!--Kentucky-->
+    KY: {
+      fillKey: '85+'
+    },
+    <!--Lousiana-->
+    LA: {
+      fillKey: '85+'
+    },
+    <!--Maine-->
+    ME: {
+      fillKey: '85+'
+    },
+    <!--Maryland-->
+    MD: {
+      fillKey: '85+'
+    },
+    <!--Massachussets-->
+    MA: {
+      fillKey: '85+'
+    },
+    <!--Michigan-->
+    MI: {
+      fillKey: '85+'
+    },
+    <!--Minnesota-->
+    MN: {
+      fillKey: '85+'
+    },
+    <!--Mississippi-->
+    MS: {
+      fillKey: '85+'
+    },
+    <!--Misouri-->
+    MO: {
+      fillKey: '85+'
+    },
+    <!--Montana-->
+    MT: {
+      fillKey: '85+'
+    },
+    <!--Nebraska-->
+    NE: {
+      fillKey: '85+'
+    },
+    <!--Nevada-->
+    NV: {
+      fillKey: '85+'
+    },
+    <!--New Hampshire-->
+    NH: {
+      fillKey: '85+'
+    },
+    <!--New Jersey-->
+    NJ: {
+      fillKey: '60-65'
+    },
+    <!--New Mexico-->
+    NM: {
+      fillKey: '85+'
+    },
+    <!--New York-->
+    NY: {
+      fillKey: '65-70'
+    },
+    <!--North Carolina-->
+    NC: {
+      fillKey: '85+'
+    },
+    <!--North Dakota-->
+    ND: {
+      fillKey: '85+'
+    },
+    <!--Ohio-->
+    OH: {
+      fillKey: '85+'
+    },
+    <!--Oklahoma-->
+    OK: {
+      fillKey: '85+'
+    },
+    <!--Oregon-->
+    OR: {
+      fillKey: '85+'
+    },
+    <!--Pennsylvania-->
+    PA: {
+      fillKey: '30-35'
+    },
+    <!--Rhode Island-->
+    RI: {
+      fillKey: 'UNKNOWN'
+    },
+    <!--South Carolina-->
+    SC: {
+      fillKey: '85+'
+    },
+    <!--South Dakota-->
+    SD: {
+      fillKey: '85+'
+    },
+    <!--Tennessee-->
+    TN: {
+      fillKey: '40-45'
+    },
+    <!--Texas-->
+    TX: {
+      fillKey: '85+'
+    },
+    <!--Utha-->
+    UT: {
+      fillKey: '70-75'
+    },
+    <!--Vermont-->
+    VT: {
+      fillKey: '85+'
+    },
+    <!--Virginia-->
+    VA: {
+      fillKey: '55-60'
+    },
+    <!--Washington-->
+    WA: {
+      fillKey: '85+'
+    },
+    <!--West Virginia-->
+    WV: {
+      fillKey: '65-70'
+    },
+    <!--Wisconsin-->
+    WI: {
+      fillKey: '85+'
+    },
+    <!--Wyoming-->
+    WY: {
+      fillKey: '85+'
+    }
+  }
+});
+
+var map5 = new Datamap({    //air pollution
+  element: document.getElementById('container5'),
+  scope: 'usa',
+  fills: {	'23+':     '#B40404',
+            '21-23': '#DF0101',
+            '19-21': '#FF0000',
+            '17-19': '#FE2E2E',
+            '15-17': '#FE642E',
+            '14-15': '#FAAC58',
+            '13-14': '#F7BE81',
+            '12-13': '#F3F781',
+            '11-12': '#D8F781',
+            '10-11': '#9FF781',
+            '9-10': '#BCF5A9',
+            '8-9': '#819FF7',
+            '7-8': '#2E64FE',
+            '5-7': '#0040FF',
+            '5-': '#013ADF',
+
+    UNKNOWN: 'grey',
+    defaultFill: 'grey'
+  },
+  data: {
+    <!--Alabama-->
+    AL: {
+      fillKey: '55-60'
+    },
+    <!--Alaska-->
+    AK: {
+      fillKey:'UNKNOWN'
+    },
+    <!--Arizona-->
+    AZ: {
+      fillKey:'75-80'
+    },
+    <!--Arkansas-->
+    AR: {
+      fillKey:'35-40'
+    },
+    <!--California-->
+    CA: {
+      fillKey: '85+'
+    },
+    <!--Colorado-->
+    CO: {
+      fillKey: '70-75'
+    },
+    <!--Connecticut-->
+    CT: {
+      fillKey: '80-85'
+    },
+    <!--Delaware-->
+    DE: {
+      fillKey: '85+'
+    },
+    <!--Florida-->
+    FL: {
+      fillKey: '85+'
+    },
+    <!--Georgia-->
+    GA: {
+      fillKey: '60-65'
+    },
+    <!--Hawaii-->
+    HI: {
+      fillKey: 'UNKNOWN'
+    },
+    <!--Idaho-->
+    ID: {
+      fillKey: '80-85'
+    },
+    <!--Illinois-->
+    IL: {
+      fillKey: '65-70'
+    },
+    <!--Indiana-->
+    IN: {
+      fillKey: '85+'
+    },
+    <!--Iowa-->
+    IA: {
+      fillKey: '85+'
+    },
+    <!--Kansas-->
+    KS: {
+      fillKey: '85+'
+    },
+    <!--Kentucky-->
+    KY: {
+      fillKey: '85+'
+    },
+    <!--Lousiana-->
+    LA: {
+      fillKey: '85+'
+    },
+    <!--Maine-->
+    ME: {
+      fillKey: '85+'
+    },
+    <!--Maryland-->
+    MD: {
+      fillKey: '85+'
+    },
+    <!--Massachussets-->
+    MA: {
+      fillKey: '85+'
+    },
+    <!--Michigan-->
+    MI: {
+      fillKey: '85+'
+    },
+    <!--Minnesota-->
+    MN: {
+      fillKey: '85+'
+    },
+    <!--Mississippi-->
+    MS: {
+      fillKey: '85+'
+    },
+    <!--Misouri-->
+    MO: {
+      fillKey: '85+'
+    },
+    <!--Montana-->
+    MT: {
+      fillKey: '85+'
+    },
+    <!--Nebraska-->
+    NE: {
+      fillKey: '85+'
+    },
+    <!--Nevada-->
+    NV: {
+      fillKey: '85+'
+    },
+    <!--New Hampshire-->
+    NH: {
+      fillKey: '85+'
+    },
+    <!--New Jersey-->
+    NJ: {
+      fillKey: '60-65'
+    },
+    <!--New Mexico-->
+    NM: {
+      fillKey: '85+'
+    },
+    <!--New York-->
+    NY: {
+      fillKey: '65-70'
+    },
+    <!--North Carolina-->
+    NC: {
+      fillKey: '85+'
+    },
+    <!--North Dakota-->
+    ND: {
+      fillKey: '85+'
+    },
+    <!--Ohio-->
+    OH: {
+      fillKey: '85+'
+    },
+    <!--Oklahoma-->
+    OK: {
+      fillKey: '85+'
+    },
+    <!--Oregon-->
+    OR: {
+      fillKey: '85+'
+    },
+    <!--Pennsylvania-->
+    PA: {
+      fillKey: '30-35'
+    },
+    <!--Rhode Island-->
+    RI: {
+      fillKey: 'UNKNOWN'
+    },
+    <!--South Carolina-->
+    SC: {
+      fillKey: '85+'
+    },
+    <!--South Dakota-->
+    SD: {
+      fillKey: '85+'
+    },
+    <!--Tennessee-->
+    TN: {
+      fillKey: '40-45'
+    },
+    <!--Texas-->
+    TX: {
+      fillKey: '85+'
+    },
+    <!--Utha-->
+    UT: {
+      fillKey: '70-75'
+    },
+    <!--Vermont-->
+    VT: {
+      fillKey: '85+'
+    },
+    <!--Virginia-->
+    VA: {
+      fillKey: '55-60'
+    },
+    <!--Washington-->
+    WA: {
+      fillKey: '85+'
+    },
+    <!--West Virginia-->
+    WV: {
+      fillKey: '65-70'
+    },
+    <!--Wisconsin-->
+    WI: {
+      fillKey: '85+'
+    },
+    <!--Wyoming-->
+    WY: {
+      fillKey: '85+'
+    }
+  }
+});
+
+var map6 = new Datamap({    //natality
+  element: document.getElementById('container6'),
+  scope: 'usa',
+  fills: {	 '800+':     '#B40404',
+            '650-800': '#DF0101',
+            '500-650': '#FF0000',
+            '400-500': '#FE2E2E',
+            '300-400': '#FE642E',
+            '200-300': '#FAAC58',
+            '150-200': '#F7BE81',
+            '100-150': '#F3F781',
+            '75-100': '#D8F781',
+            '50-75': '#9FF781',
+            '40-50': '#BCF5A9',
+            '30-40': '#819FF7',
+            '20-30': '#2E64FE',
+            '10-20': '#0040FF',
+            '10-': '#013ADF',
+
+
     UNKNOWN: 'grey',
     defaultFill: 'grey'
   },
