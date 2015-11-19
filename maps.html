@@ -47,9 +47,9 @@
 
           year : $("#year").val(),
 
-          data1 : $('input[name=data1]:checked', '#form1').val(),
+          data1 : $("input[name=data1]:checked", "#form1").val(),
 
-          data2 : $('input[name=data2]:checked', '#form2').val()
+          data2 : $("input[name=data2]:checked", "#form2").val()
 
         },
 
@@ -162,8 +162,7 @@
     <div class="sub-option o-3 o-slider" data-type="slider">
       <div class="well">
 
-        <form method="post"
-        action="d3test2.php">
+
 
         <script type="text/javascript">
         var month1;
@@ -250,8 +249,7 @@
 
     </script>
 
-    <input type="submit" name="envoi" value="test";/>
-  </form>
+
 
 
   <p><strong> Date: </strong></p>
@@ -270,7 +268,7 @@
     <ul id="scrollLeft">
       <li>Choose a first entry :
         <ul>
-          <form name ="form1">
+          <form name ="form1" class="modify">
             <input type = "radio"  name = "data1" value = "Tmin" onclick="fonction1()">Temperature Min
             <input type = "radio"  name = "data1" value = "Tmax" onclick="fonction1()" checked>Temperature Max
           </form>
@@ -282,7 +280,7 @@
     <ul id="scrollRight">
       <li>Choose a second entry :
         <ul>
-          <form name = "form2">
+          <form name = "form2" class="modify">
             <input type = "radio"  name = "data2" value = "suicide" onclick="fonction2()">Suicide
             <input type = "radio"  name = "data2" value = "car" onclick="fonction2()">Car crash
             <input type = "radio"  name = "data2" value = "natality" onclick="fonction2()" checked>Natality Rate
