@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Hackathon IAMD 2015</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/sb-admin.css" rel="stylesheet">
+	
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+	<script src="https://raw.githubusercontent.com/markmarkoh/datamaps/master/dist/datamaps.usa.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+	
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">AC/DC 's (Aplha Class Data Crunshers) Project</a>
+            </div>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li>
+                        <a href="index.html">Summary</a>
+                    </li>
+                    <li>
+                        <a href="maps.html">Maps</a>
+                    </li>
+                    <li>
+                        <a href="correlations.html">Correlations</a>
+                    </li>
+                    <!--<li class="active">
+                        <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
+                    </li>
+                    <li>
+                        <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
+                    </li>
+                    <li>
+                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li>
+                                <a href="#">Dropdown Item</a>
+                            </li>
+                            <li>
+                                <a href="#">Dropdown Item</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
+                    </li>
+                    <li>
+                        <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
+                    </li>-->
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+						USA Heat Maps
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li>
+                                <i class="fa fa-dashboard"></i>  <a href="index.html">Summary</a>
+                            </li>
+                            <li class="active">
+                                <i class="fa fa-edit"></i> <a href="correlations.html"> Correlations </a>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.row -->
+				
+				
+				<div class="sub-option o-3 o-slider" data-type="slider">
+				<div class="well">
+				
+				<form method="post"
+					action="d3test2.php">
+					
+					<script type="text/javascript">
+						var month1;
+						var year1;
+						var element;
+						var element2;
+						var d1,d2,d3,d4;
+						var test = [d1,d2,d3,d4];
+						
+						function updateMonth(val1,val2) {
+							month1 = val1; 
+							year1=val2;
+							amount.value=month.value;
+							
+							d1 = month1;
+							d2 = year1;
+							test = [d1,d2,d3,d4];
+							
+							//alert(test);
+						}
+	
+						function updateYear(val1,val2) {
+							month1= val1;
+							year1 = val2; 
+							amount2.value=year.value;
+							
+							d1 = month1;
+							d2 = year1;
+							test = [d1,d2,d3,d4];
+							//alert(test);
+							//alert(month1 + " / " + year1);
+						}
+	
+						function fonction1(){
+							element = document.form1.data1;
+							for (var i=0;i<element.length;i++)
+							{
+							if(element[i].checked)
+								{
+								var data1 = element[i].value;
+								
+								d3 = data1;
+								
+								test = [d1,d2,d3,d4];
+								//alert(test);
+								//alert(data1);
+								break;
+								}
+							}
+						}
+
+	
+						function fonction2(){
+							element2  = document.form2.data2;
+							for (var i=0;i< element2.length;i++)
+							{
+							if(element2[i].checked)
+								{
+								var data2 = element2[i].value;
+								
+								d4 = data2;
+								
+								test = [d1,d2,d3,d4];
+								
+								//alert(test);
+								break;
+								}
+							}
+						}
+		
+						/*function post(){
+						var dataObject = {"#data1"};
+						$.ajax({
+						url:"d3test2.php",
+						data: dataOgject,
+						type:"POST",
+						success:function(){
+						$("#data2 #month #year").submit();
+						}});
+						return false;
+						}*/
+						
+						
+						
+					</script>
+					
+					<input type="submit" name="envoi" value="test";/>
+					</form>
+					
+
+<p><strong> Date: </strong></p>
+	<p> Month : <input type="range" id="month" name="month" value="1" min="1" max="12" step="1" onchange="updateMonth(month.value,year.value)";/>
+		<output name="amount" id="amount" for="month">1</output>
+	
+
+
+	Year : <input type="range" id="year" name="year" value="1999" min="1999" max="2010" step="1" onchange="updateYear(month.value,year.value)";/>
+		<output name="amount2" id="amount2"for="year">1999</output>
+	</p>
+</div>
+</div>
+<div class = "row">
+<div class="col-lg-4" id="container1" style="position: relative; width: 500px; height: 400px;">
+	<ul id="scrollLeft">
+		<li>Choose a first entry :
+			<ul>
+				<form name ="form1">
+				<input type = "radio"  name = "data1" value = "Tmin" onclick="fonction1()">Temperature Min
+				<input type = "radio"  name = "data1" value = "Tmax" onclick="fonction1()" checked>Temperature Max
+				</form>
+			</ul>
+		</li>
+	</ul>
+</div>
+<div class="col-lg-8" id="container2" style="position: relative; width: 500px; height: 400px;">
+<ul id="scrollRight">
+		<li>Choose a second entry :
+			<ul>
+				<form name = "form2">
+				<input type = "radio"  name = "data2" value = "suicide" onclick="fonction2()">Suicide
+				<input type = "radio"  name = "data2" value = "car" onclick="fonction2()">Car crash
+				<input type = "radio"  name = "data2" value = "natality" onclick="fonction2()" checked>Natality Rate
+				<input type = "radio"  name = "data2" value = "air" onclick="fonction2()">Air Particle Matter
+				</form>
+			</ul>
+		</li>
+	</ul>
+</div>
+</div>
+<script>
+	
+    var map1 = new Datamap({
+        element: document.getElementById('container1'),
+		scope: 'usa',
+        fills: {
+            '85+':	 '#B40404',
+			'80-85': '#DF0101', 
+			'75-80': '#FF0000',
+			'70-75': '#FE2E2E',
+			'65-70': '#FE642E',
+			'60-65': '#FAAC58',
+			'55-60': '#F7BE81',
+			'50-55': '#F3F781',
+			'45-50': '#D8F781',
+			'40-45': '#9FF781',
+			'35-40': '#BCF5A9',
+			'30-35': '#819FF7',
+			'25-30': '#2E64FE',
+			'20-25': '#0040FF',
+            '20-': '#013ADF',
+            UNKNOWN: 'grey',
+            defaultFill: 'grey'
+        },
+        data: {
+            <!--Alabama-->
+			AL: {
+				fillKey: '55-60'
+			},
+			<!--Alaska-->
+			AK: {
+				fillKey:'UNKNOWN'
+			},
+			<!--Arizona-->
+			AZ: {
+				fillKey:'75-80'
+			},
+			<!--Arkansas-->
+			AR: {
+				fillKey:'35-40'
+			},
+			<!--California-->
+            CA: {
+                fillKey: '85+'
+            },
+			<!--Colorado-->
+			CO: {
+                fillKey: '70-75'
+            },
+			<!--Connecticut-->
+			CT: {
+                fillKey: '80-85'
+            },
+			<!--Delaware-->
+			DE: {
+                fillKey: '85+'
+            },
+			<!--Florida-->
+			FL: {
+                fillKey: '85+'
+            },
+			<!--Georgia-->
+			GA: {
+                fillKey: '60-65'
+            },
+			<!--Hawaii-->
+			HI: {
+                fillKey: 'UNKNOWN'
+            },
+			<!--Idaho-->
+			ID: {
+                fillKey: '80-85'
+            },
+			<!--Illinois-->
+			IL: {
+                fillKey: '65-70'
+            },
+			<!--Indiana-->
+			IN: {
+                fillKey: '85+'
+            },
+			<!--Iowa-->
+			IA: {
+                fillKey: '85+'
+            },
+			<!--Kansas-->
+			KS: {
+                fillKey: '85+'
+            },
+			<!--Kentucky-->
+			KY: {
+                fillKey: '85+'
+            },
+			<!--Lousiana-->
+			LA: {
+                fillKey: '85+'
+            },
+			<!--Maine-->
+			ME: {
+                fillKey: '85+'
+            },
+			<!--Maryland-->
+			MD: {
+                fillKey: '85+'
+            },
+			<!--Massachussets-->
+			MA: {
+                fillKey: '85+'
+            },
+			<!--Michigan-->
+			MI: {
+                fillKey: '85+'
+            },
+			<!--Minnesota-->
+			MN: {
+                fillKey: '85+'
+            },
+			<!--Mississippi-->
+			MS: {
+                fillKey: '85+'
+            },
+			<!--Misouri-->
+			MO: {
+                fillKey: '85+'
+            },
+			<!--Montana-->
+			MT: {
+                fillKey: '85+'
+            },
+			<!--Nebraska-->
+			NE: {
+                fillKey: '85+'
+            },
+			<!--Nevada-->
+			NV: {
+                fillKey: '85+'
+            },
+			<!--New Hampshire-->
+			NH: {
+                fillKey: '85+'
+            },
+			<!--New Jersey-->
+			NJ: {
+                fillKey: '60-65'
+            },
+			<!--New Mexico-->
+			NM: {
+                fillKey: '85+'
+            },
+			<!--New York-->
+			NY: {
+                fillKey: '65-70'
+            },
+			<!--North Carolina-->
+			NC: {
+                fillKey: '85+'
+            },
+			<!--North Dakota-->
+			ND: {
+                fillKey: '85+'
+            },
+			<!--Ohio-->
+			OH: {
+                fillKey: '85+'
+            },
+			<!--Oklahoma-->
+			OK: {
+                fillKey: '85+'
+            },
+			<!--Oregon-->
+			OR: {
+                fillKey: '85+'
+            },
+			<!--Pennsylvania-->
+			PA: {
+                fillKey: '30-35'
+            },
+			<!--Rhode Island-->
+			RI: {
+                fillKey: 'UNKNOWN'
+            },
+			<!--South Carolina-->
+			SC: {
+                fillKey: '85+'
+            },
+			<!--South Dakota-->
+			SD: {
+                fillKey: '85+'
+            },
+			<!--Tennessee-->
+			TN: {
+                fillKey: '40-45'
+            },
+			<!--Texas-->
+			TX: {
+				fillKey: '85+'
+			},
+			<!--Utha-->
+			UT: {
+                fillKey: '70-75'
+            },
+			<!--Vermont-->
+			VT: {
+                fillKey: '85+'
+            },
+			<!--Virginia-->
+			VA: {
+                fillKey: '55-60'
+            },
+			<!--Washington-->
+			WA: {
+                fillKey: '85+'
+            },
+			<!--West Virginia-->
+			WV: {
+                fillKey: '65-70'
+            },
+			<!--Wisconsin-->
+			WI: {
+                fillKey: '85+'
+            },
+			<!--Wyoming-->
+			WY: {
+                fillKey: '85+'
+            }
+        }
+    });
+	
+	var map2 = new Datamap({
+        element: document.getElementById('container2'),
+		scope: 'usa',
+        fills: {
+            '85+':	 '#B40404',
+			'80-85': '#DF0101', 
+			'75-80': '#FF0000',
+			'70-75': '#FE2E2E',
+			'65-70': '#FE642E',
+			'60-65': '#FAAC58',
+			'55-60': '#F7BE81',
+			'50-55': '#F3F781',
+			'45-50': '#D8F781',
+			'40-45': '#9FF781',
+			'35-40': '#BCF5A9',
+			'30-35': '#819FF7',
+			'25-30': '#2E64FE',
+			'20-25': '#0040FF',
+            '20-': '#013ADF',
+            UNKNOWN: 'grey',
+            defaultFill: 'grey'
+        },
+        data: {
+            <!--Alabama-->
+			AL: {
+				fillKey: '55-60'
+			},
+			<!--Alaska-->
+			AK: {
+				fillKey:'UNKNOWN'
+			},
+			<!--Arizona-->
+			AZ: {
+				fillKey:'75-80'
+			},
+			<!--Arkansas-->
+			AR: {
+				fillKey:'35-40'
+			},
+			<!--California-->
+            CA: {
+                fillKey: '85+'
+            },
+			<!--Colorado-->
+			CO: {
+                fillKey: '70-75'
+            },
+			<!--Connecticut-->
+			CT: {
+                fillKey: '80-85'
+            },
+			<!--Delaware-->
+			DE: {
+                fillKey: '85+'
+            },
+			<!--Florida-->
+			FL: {
+                fillKey: '85+'
+            },
+			<!--Georgia-->
+			GA: {
+                fillKey: '60-65'
+            },
+			<!--Hawaii-->
+			HI: {
+                fillKey: 'UNKNOWN'
+            },
+			<!--Idaho-->
+			ID: {
+                fillKey: '80-85'
+            },
+			<!--Illinois-->
+			IL: {
+                fillKey: '65-70'
+            },
+			<!--Indiana-->
+			IN: {
+                fillKey: '85+'
+            },
+			<!--Iowa-->
+			IA: {
+                fillKey: '85+'
+            },
+			<!--Kansas-->
+			KS: {
+                fillKey: '85+'
+            },
+			<!--Kentucky-->
+			KY: {
+                fillKey: '85+'
+            },
+			<!--Lousiana-->
+			LA: {
+                fillKey: '85+'
+            },
+			<!--Maine-->
+			ME: {
+                fillKey: '85+'
+            },
+			<!--Maryland-->
+			MD: {
+                fillKey: '85+'
+            },
+			<!--Massachussets-->
+			MA: {
+                fillKey: '85+'
+            },
+			<!--Michigan-->
+			MI: {
+                fillKey: '85+'
+            },
+			<!--Minnesota-->
+			MN: {
+                fillKey: '85+'
+            },
+			<!--Mississippi-->
+			MS: {
+                fillKey: '85+'
+            },
+			<!--Misouri-->
+			MO: {
+                fillKey: '85+'
+            },
+			<!--Montana-->
+			MT: {
+                fillKey: '85+'
+            },
+			<!--Nebraska-->
+			NE: {
+                fillKey: '85+'
+            },
+			<!--Nevada-->
+			NV: {
+                fillKey: '85+'
+            },
+			<!--New Hampshire-->
+			NH: {
+                fillKey: '85+'
+            },
+			<!--New Jersey-->
+			NJ: {
+                fillKey: '60-65'
+            },
+			<!--New Mexico-->
+			NM: {
+                fillKey: '85+'
+            },
+			<!--New York-->
+			NY: {
+                fillKey: '65-70'
+            },
+			<!--North Carolina-->
+			NC: {
+                fillKey: '85+'
+            },
+			<!--North Dakota-->
+			ND: {
+                fillKey: '85+'
+            },
+			<!--Ohio-->
+			OH: {
+                fillKey: '85+'
+            },
+			<!--Oklahoma-->
+			OK: {
+                fillKey: '85+'
+            },
+			<!--Oregon-->
+			OR: {
+                fillKey: '85+'
+            },
+			<!--Pennsylvania-->
+			PA: {
+                fillKey: '30-35'
+            },
+			<!--Rhode Island-->
+			RI: {
+                fillKey: 'UNKNOWN'
+            },
+			<!--South Carolina-->
+			SC: {
+                fillKey: '85+'
+            },
+			<!--South Dakota-->
+			SD: {
+                fillKey: '85+'
+            },
+			<!--Tennessee-->
+			TN: {
+                fillKey: '40-45'
+            },
+			<!--Texas-->
+			TX: {
+				fillKey: '85+'
+			},
+			<!--Utha-->
+			UT: {
+                fillKey: '70-75'
+            },
+			<!--Vermont-->
+			VT: {
+                fillKey: '85+'
+            },
+			<!--Virginia-->
+			VA: {
+                fillKey: '55-60'
+            },
+			<!--Washington-->
+			WA: {
+                fillKey: '85+'
+            },
+			<!--West Virginia-->
+			WV: {
+                fillKey: '65-70'
+            },
+			<!--Wisconsin-->
+			WI: {
+                fillKey: '85+'
+            },
+			<!--Wyoming-->
+			WY: {
+                fillKey: '85+'
+            }
+        }
+    });
+	
+</script>
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
