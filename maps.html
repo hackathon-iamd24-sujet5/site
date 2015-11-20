@@ -175,8 +175,8 @@
         function updateMonth(val1,val2) {
           month1 = val1;
           year1=val2;
-          amount.value=month.value;
-
+          amount.value=val1;
+		
           d1 = month1;
           d2 = year1;
           test = [d1,d2,d3,d4];
@@ -187,8 +187,8 @@
         function updateYear(val1,val2) {
           month1= val1;
           year1 = val2;
-          amount2.value=year.value;
-
+          amount2.value=val2;
+		
           d1 = month1;
           d2 = year1;
           test = [d1,d2,d3,d4];
@@ -203,7 +203,7 @@
             if(element[i].checked)
             {
               var data1 = element[i].value;
-
+			location.reload();
               d3 = data1;
 
               test = [d1,d2,d3,d4];
@@ -222,8 +222,9 @@
             if(element2[i].checked)
             {
               var data2 = element2[i].value;
-
+			location.reload();
               d4 = data2;
+		
 
               test = [d1,d2,d3,d4];
 
@@ -252,33 +253,22 @@
 
 
 
-  <p><strong> Date: </strong></p>
-  <p> Month : <input type="range" class="modify" id="month" name="month" value="1" min="1" max="12" step="1" onchange="updateMonth(month.value,year.value)";/>
-    <output name="amount" id="amount" for="month">1</output>
+  <p><strong> Date: 03 / 2004 </strong></p>
+  <!--<p> Month : <input type="range" class="modify" id="month" name="month" value="1" min="3" max="3" step="1" onchange="updateMonth(month.value,year.value)";/>
+    <output name="amount" id="amount" for="month">3</output>
 
 
 
-    Year : <input type="range" class="modify" id="year" name="year" value="1999" min="1999" max="2010" step="1" onchange="updateYear(month.value,year.value)";/>
-    <output name="amount2" id="amount2"for="year">1999</output>
-  </p>
+    Year : <input type="range" class="modify" id="year" name="year" value="1999" min="2004" max="2004" step="1" onchange="updateYear(month.value,year.value)";/>
+    <output name="amount2" id="amount2"for="year">2004</output>
+  </p>-->
 </div>
 </div>
+
 <div class = "row">
 
-  <div class="col-lg-4" id="container1" style="position: relative; width: 500px; height: 400px;">
-    <ul id="scrollLeft">
-      <li>Choose a first entry :
-        <ul>
-          <form name ="form1" class="modify">
-            <input type = "radio"  name = "data1" value = "Tmin" onclick="fonction1()" checked>Temperature Min
-            <input type = "radio"  name = "data1" value = "Tmax" onclick="fonction1()">Temperature Max
-          </form>
-        </ul>
-      </li>
-    </ul>
-  </div>
  
-  <div class="col-lg-4" id="container2" style="position: relative; width: 500px; height: 400px;">
+  <div class="col-lg-4" id="container" style="position: relative; width: 500px; height: 400px;">
     <ul id="scrollLeft">
       <li>Choose a first entry :
         <ul>
@@ -290,57 +280,10 @@
       </li>
     </ul>
   </div>
-  
- 
-
-  <div class="col-lg-8" id="container4" style="position: relative; width: 500px; height: 400px;">
-    <ul id="scrollRight">
-      <li>Choose a second entry :
-        <ul>
-          <form name = "form2" class="modify">
-            <input type = "radio"  name = "data2" value = "suicide" onclick="fonction2()">Suicide
-            <input type = "radio"  name = "data2" value = "car" onclick="fonction2()" checked>Car crash
-            <input type = "radio"  name = "data2" value = "natality" onclick="fonction2()" >Natality Rate
-            <input type = "radio"  name = "data2" value = "air" onclick="fonction2()">Air Particle Matter
-          </form>
-        </ul>
-      </li>
-    </ul>
-  </div>
 
 
-  <div class="col-lg-8" id="container3" style="position: relative; width: 500px; height: 400px;">
-    <ul id="scrollRight">
-      <li>Choose a second entry :
-        <ul>
-          <form name = "form2" class="modify">
-            <input type = "radio"  name = "data2" value = "suicide" onclick="fonction2()" checked>Suicide
-            <input type = "radio"  name = "data2" value = "car" onclick="fonction2()">Car crash
-            <input type = "radio"  name = "data2" value = "natality" onclick="fonction2()">Natality Rate
-            <input type = "radio"  name = "data2" value = "air" onclick="fonction2()">Air Particle Matter
-          </form>
-        </ul>
-      </li>
-    </ul>
-  </div>
 
-  <div class="col-lg-8" id="container5" style="position: relative; width: 500px; height: 400px;">
-    <ul id="scrollRight">
-      <li>Choose a second entry :
-        <ul>
-          <form name = "form2" class="modify">
-            <input type = "radio"  name = "data2" value = "suicide" onclick="fonction2()" >Suicide
-            <input type = "radio"  name = "data2" value = "car" onclick="fonction2()">Car crash
-            <input type = "radio"  name = "data2" value = "natality" onclick="fonction2()">Natality Rate
-            <input type = "radio"  name = "data2" value = "air" onclick="fonction2()" checked>Air Particle Matter
-          </form>
-        </ul>
-      </li>
-    </ul>
-  </div>
-
-
-<div class="col-lg-8" id="container6" style="position: relative; width: 500px; height: 400px;">
+<div class="col-lg-8" id="container2" style="position: relative; width: 500px; height: 400px;">
     <ul id="scrollRight">
       <li>Choose a second entry :
         <ul>
@@ -358,8 +301,155 @@
 
 <script>
 
-var map1 = new Datamap({ //TMIN
-  element: document.getElementById('container1'),
+var map;
+var map2;
+
+var usa1;
+var usa2;
+var usa3;
+var usa4;
+var usa5;
+var usa6;
+var usa7;
+var usa8;
+var usa9;
+var usa10;
+var usa11;
+var usa12;
+var usa13;
+var usa14;
+var usa15;
+var usa16;
+var usa17;
+var usa18;
+var usa19;
+var usa20;
+var usa21;
+var usa22;
+var usa23;
+var usa24;
+var usa25;
+var usa26;
+var usa27;
+var usa28;
+var usa29;
+var usa30;
+var usa31;
+var usa32;
+var usa33;
+var usa34;
+var usa35;
+var usa36;
+var usa37;
+var usa38;
+var usa39;
+var usa40;
+var usa41;
+var usa42;
+var usa43;
+var usa44;
+var usa45;
+var usa46;
+var usa47;
+var usa48;
+var usa49;
+var usa50;
+var usa51;
+
+
+function update(val,lim1,lim2,lim3,lim4,lim5,lim6,lim7,lim8,lim9,lim10,lim11,lim12,lim13,lim14){
+
+if(val<lim1){
+val = "'"+lim1+"-'";
+}else if(val>lim1 && val<lim2){
+val = "'"+lim1+"-"+lim2+"'";
+}else if(val>lim2 && val<lim3){
+val = "'"+lim2+"-"+lim3+"'";
+}else if(val>lim3 && val<lim4){
+val = "'"+lim3+"-"+lim4+"'";
+}else if(val>lim4 && val<lim5){
+val = "'"+lim4+"-"+lim5+"'";
+}else if(val>lim5 && val<lim6){
+val = "'"+lim5+"-"+lim6+"'";
+}else if(val>lim6 && val<lim7){
+val = "'"+lim6+"-"+lim7+"'";
+}else if(val>lim7 && val<lim8){
+val = "'"+lim7+"-"+lim8+"'";
+}else if(val>lim8 && val<lim9){
+val = "'"+lim8+"-"+lim9+"'";
+}else if(val>lim9 && val<lim10){
+val = "'"+lim9+"-"+lim10+"'";
+}else if(val>lim10 && val<lim11){
+val = "'"+lim10+"-"+lim11+"'";
+}else if(val>lim11 && val<lim12){
+val = "'"+lim11+"-"+lim12+"'";
+}else if(val>lim12 && val<lim13){
+val = "'"+lim12+"-"+lim13+"'";
+}else if(val>lim13 && val<lim14){
+val = "'"+lim13+"-"+lim14+"'";
+}else{
+val = "'"+lim14+"+"+"'";
+}
+}
+
+//document.write($("input[name='data1']:checked").val());
+
+if($("input[name='data1']:checked").val()=="Tmin"){
+
+  /* update(usa1,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa2,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa3,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa4,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa5,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa6,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa7,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa8,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa9,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa10,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa11,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa12,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa13,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa14,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa15,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa16,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa17,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa18,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa19,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa20,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa21,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa22,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa23,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa24,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa25,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa26,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa27,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa28,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa29,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa30,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa31,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa32,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa33,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa34,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa35,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa36,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa37,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa38,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa39,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa40,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa41,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa42,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa43,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa44,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa45,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa46,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa47,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa48,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa49,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa50,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+  update(usa51,'*200','*160','*120','*80','*40','0','40','80','120','160','200','240','280','320');
+   */
+	map = new Datamap({ //TMIN
+  element: document.getElementById('container'),
   scope: 'usa',
   fills: {
 			'320+':     '#B40404',
@@ -380,212 +470,268 @@ var map1 = new Datamap({ //TMIN
     UNKNOWN: 'grey',
     defaultFill: 'grey'
   },
+
   data: {
     <!--Alabama-->
     AL: {
-      fillKey: '200-240'
+      fillKey: usa1
     },
     <!--Alaska-->
     AK: {
-      fillKey:'UNKNOWN'
+      fillKey: usa2
     },
     <!--Arizona-->
     AZ: {
-      fillKey:'75-80'
+      fillKey: usa3
     },
     <!--Arkansas-->
     AR: {
-      fillKey:'35-40'
+      fillKey: usa4
     },
     <!--California-->
     CA: {
-      fillKey: '85+'
+      fillKey: usa5
     },
     <!--Colorado-->
     CO: {
-      fillKey: '70-75'
+      fillKey: usa6
     },
     <!--Connecticut-->
     CT: {
-      fillKey: '80-85'
+      fillKey: usa7
     },
     <!--Delaware-->
     DE: {
-      fillKey: '85+'
+      fillKey: usa8
     },
     <!--Florida-->
     FL: {
-      fillKey: '85+'
+      fillKey: usa9
     },
     <!--Georgia-->
     GA: {
-      fillKey: '60-65'
+      fillKey: usa10
     },
     <!--Hawaii-->
     HI: {
-      fillKey: 'UNKNOWN'
+      fillKey: usa11
     },
     <!--Idaho-->
     ID: {
-      fillKey: '80-85'
+      fillKey: usa12
     },
     <!--Illinois-->
     IL: {
-      fillKey: '65-70'
+      fillKey: usa13
     },
     <!--Indiana-->
     IN: {
-      fillKey: '85+'
+      fillKey: usa14
     },
     <!--Iowa-->
     IA: {
-      fillKey: '85+'
+      fillKey: usa15
     },
     <!--Kansas-->
     KS: {
-      fillKey: '85+'
+      fillKey: usa16
     },
     <!--Kentucky-->
     KY: {
-      fillKey: '85+'
+      fillKey: usa17
     },
     <!--Lousiana-->
     LA: {
-      fillKey: '85+'
+      fillKey: usa18
     },
     <!--Maine-->
     ME: {
-      fillKey: '85+'
+      fillKey: usa19
     },
     <!--Maryland-->
     MD: {
-      fillKey: '85+'
+      fillKey: usa20
     },
     <!--Massachussets-->
     MA: {
-      fillKey: '85+'
+      fillKey: usa21
     },
     <!--Michigan-->
     MI: {
-      fillKey: '85+'
+      fillKey: usa22
     },
     <!--Minnesota-->
     MN: {
-      fillKey: '85+'
+      fillKey: usa23
     },
     <!--Mississippi-->
     MS: {
-      fillKey: '85+'
+      fillKey: usa24
     },
     <!--Misouri-->
     MO: {
-      fillKey: '85+'
+      fillKey: usa25
     },
     <!--Montana-->
     MT: {
-      fillKey: '85+'
+      fillKey: usa26
     },
     <!--Nebraska-->
     NE: {
-      fillKey: '85+'
+      fillKey: usa27
     },
     <!--Nevada-->
     NV: {
-      fillKey: '85+'
+      fillKey: usa28
     },
     <!--New Hampshire-->
     NH: {
-      fillKey: '85+'
+      fillKey: usa29
     },
     <!--New Jersey-->
     NJ: {
-      fillKey: '60-65'
+      fillKey: usa30
     },
     <!--New Mexico-->
     NM: {
-      fillKey: '85+'
+      fillKey: usa31
     },
     <!--New York-->
     NY: {
-      fillKey: '65-70'
+      fillKey: usa32
     },
     <!--North Carolina-->
     NC: {
-      fillKey: '85+'
+      fillKey: usa33
     },
     <!--North Dakota-->
     ND: {
-      fillKey: '85+'
+      fillKey: usa34
     },
     <!--Ohio-->
     OH: {
-      fillKey: '85+'
+      fillKey: usa35
     },
     <!--Oklahoma-->
     OK: {
-      fillKey: '85+'
+      fillKey: usa36
     },
     <!--Oregon-->
     OR: {
-      fillKey: '85+'
+      fillKey: usa37
     },
     <!--Pennsylvania-->
     PA: {
-      fillKey: '30-35'
+      fillKey: usa38
     },
     <!--Rhode Island-->
     RI: {
-      fillKey: 'UNKNOWN'
+      fillKey: usa39
     },
     <!--South Carolina-->
     SC: {
-      fillKey: '85+'
+      fillKey: usa40
     },
     <!--South Dakota-->
     SD: {
-      fillKey: '85+'
+      fillKey: usa41
     },
     <!--Tennessee-->
     TN: {
-      fillKey: '40-45'
+      fillKey: usa42
     },
     <!--Texas-->
     TX: {
-      fillKey: '85+'
+      fillKey: usa43
     },
     <!--Utha-->
     UT: {
-      fillKey: '70-75'
+      fillKey: usa44
     },
     <!--Vermont-->
     VT: {
-      fillKey: '85+'
+      fillKey: usa45
     },
     <!--Virginia-->
     VA: {
-      fillKey: '55-60'
+      fillKey: usa46
     },
     <!--Washington-->
     WA: {
-      fillKey: '85+'
+      fillKey: usa47
     },
     <!--West Virginia-->
     WV: {
-      fillKey: '65-70'
+      fillKey: usa48
     },
     <!--Wisconsin-->
     WI: {
-      fillKey: '85+'
+      fillKey: usa49
     },
     <!--Wyoming-->
     WY: {
-      fillKey: '85+'
+      fillKey: usa50
     }
   }
 });
+}
 
-var map2 = new Datamap({     //Tmax
-  element: document.getElementById('container2'),
+if($("input[name='data1']:checked").val()=="Tmax"){
+ 
+  /*update(usa1,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa2,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa3,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa4,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa5,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa6,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa7,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa8,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa9,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa10,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa11,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa12,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa13,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa14,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa15,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa16,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa17,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa18,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa19,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa20,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa21,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa22,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa23,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa24,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa25,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa26,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa27,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa28,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa29,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa30,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa31,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa32,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa33,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa34,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa35,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa36,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa37,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa38,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa39,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa40,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa41,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa42,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa43,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa44,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa45,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa46,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa47,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa48,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa49,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa50,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');
+  update(usa51,'*200','*100','*50','0','50','100','150','200','250','300','250','400','450','500');*/
+  
+map = new Datamap({     //Tmax
+  element: document.getElementById('container'),
   scope: 'usa',
   fills: {
 			'500+':     '#B40404',
@@ -606,212 +752,269 @@ var map2 = new Datamap({     //Tmax
     UNKNOWN: 'grey',
     defaultFill: 'grey'
   },
+
   data: {
     <!--Alabama-->
     AL: {
-      fillKey: '450-500'
+      fillKey: usa1
     },
     <!--Alaska-->
     AK: {
-      fillKey:'UNKNOWN'
+      fillKey: usa2
     },
     <!--Arizona-->
     AZ: {
-      fillKey:'500+'
+      fillKey: usa3
     },
     <!--Arkansas-->
     AR: {
-      fillKey:'35-40'
+      fillKey: usa4
     },
     <!--California-->
     CA: {
-      fillKey: '85+'
+      fillKey: usa5
     },
     <!--Colorado-->
     CO: {
-      fillKey: '70-75'
+      fillKey: usa6
     },
     <!--Connecticut-->
     CT: {
-      fillKey: '80-85'
+      fillKey: usa7
     },
     <!--Delaware-->
     DE: {
-      fillKey: '85+'
+      fillKey: usa8
     },
     <!--Florida-->
     FL: {
-      fillKey: '85+'
+      fillKey: usa9
     },
     <!--Georgia-->
     GA: {
-      fillKey: '60-65'
+      fillKey: usa10
     },
     <!--Hawaii-->
     HI: {
-      fillKey: 'UNKNOWN'
+      fillKey: usa11
     },
     <!--Idaho-->
     ID: {
-      fillKey: '80-85'
+      fillKey: usa12
     },
     <!--Illinois-->
     IL: {
-      fillKey: '65-70'
+      fillKey: usa13
     },
     <!--Indiana-->
     IN: {
-      fillKey: '85+'
+      fillKey: usa14
     },
     <!--Iowa-->
     IA: {
-      fillKey: '85+'
+      fillKey: usa15
     },
     <!--Kansas-->
     KS: {
-      fillKey: '85+'
+      fillKey: usa16
     },
     <!--Kentucky-->
     KY: {
-      fillKey: '85+'
+      fillKey: usa17
     },
     <!--Lousiana-->
     LA: {
-      fillKey: '85+'
+      fillKey: usa18
     },
     <!--Maine-->
     ME: {
-      fillKey: '85+'
+      fillKey: usa19
     },
     <!--Maryland-->
     MD: {
-      fillKey: '85+'
+      fillKey: usa20
     },
     <!--Massachussets-->
     MA: {
-      fillKey: '85+'
+      fillKey: usa21
     },
     <!--Michigan-->
     MI: {
-      fillKey: '85+'
+      fillKey: usa22
     },
     <!--Minnesota-->
     MN: {
-      fillKey: '85+'
+      fillKey: usa23
     },
     <!--Mississippi-->
     MS: {
-      fillKey: '85+'
+      fillKey: usa24
     },
     <!--Misouri-->
     MO: {
-      fillKey: '85+'
+      fillKey: usa25
     },
     <!--Montana-->
     MT: {
-      fillKey: '85+'
+      fillKey: usa26
     },
     <!--Nebraska-->
     NE: {
-      fillKey: '85+'
+      fillKey: usa27
     },
     <!--Nevada-->
     NV: {
-      fillKey: '85+'
+      fillKey: usa28
     },
     <!--New Hampshire-->
     NH: {
-      fillKey: '85+'
+      fillKey: usa29
     },
     <!--New Jersey-->
     NJ: {
-      fillKey: '60-65'
+      fillKey: usa30
     },
     <!--New Mexico-->
     NM: {
-      fillKey: '85+'
+      fillKey: usa31
     },
     <!--New York-->
     NY: {
-      fillKey: '65-70'
+      fillKey: usa32
     },
     <!--North Carolina-->
     NC: {
-      fillKey: '85+'
+      fillKey: usa33
     },
     <!--North Dakota-->
     ND: {
-      fillKey: '85+'
+      fillKey: usa34
     },
     <!--Ohio-->
     OH: {
-      fillKey: '85+'
+      fillKey: usa35
     },
     <!--Oklahoma-->
     OK: {
-      fillKey: '85+'
+      fillKey: usa36
     },
     <!--Oregon-->
     OR: {
-      fillKey: '85+'
+      fillKey: usa37
     },
     <!--Pennsylvania-->
     PA: {
-      fillKey: '30-35'
+      fillKey: usa38
     },
     <!--Rhode Island-->
     RI: {
-      fillKey: 'UNKNOWN'
+      fillKey: usa39
     },
     <!--South Carolina-->
     SC: {
-      fillKey: '85+'
+      fillKey: usa40
     },
     <!--South Dakota-->
     SD: {
-      fillKey: '85+'
+      fillKey: usa41
     },
     <!--Tennessee-->
     TN: {
-      fillKey: '40-45'
+      fillKey: usa42
     },
     <!--Texas-->
     TX: {
-      fillKey: '85+'
+      fillKey: usa43
     },
     <!--Utha-->
     UT: {
-      fillKey: '70-75'
+      fillKey: usa44
     },
     <!--Vermont-->
     VT: {
-      fillKey: '85+'
+      fillKey: usa45
     },
     <!--Virginia-->
     VA: {
-      fillKey: '55-60'
+      fillKey: usa46
     },
     <!--Washington-->
     WA: {
-      fillKey: '85+'
+      fillKey: usa47
     },
     <!--West Virginia-->
     WV: {
-      fillKey: '65-70'
+      fillKey: usa48
     },
     <!--Wisconsin-->
     WI: {
-      fillKey: '85+'
+      fillKey: usa49
     },
     <!--Wyoming-->
     WY: {
-      fillKey: '85+'
+      fillKey: usa50
     }
   }
 });
+}
 
-var map3 = new Datamap({    //suicide
-  element: document.getElementById('container3'),
+if($("input[name='data2']:checked").val()=="suicide"){ 
+ 
+ /* update(usa1,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa2,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa3,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa4,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa5,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa6,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa7,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa8,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa9,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa10,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa11,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa12,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa13,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa14,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa15,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa16,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa17,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa18,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa19,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa20,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa21,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa22,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa23,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa24,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa25,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa26,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa27,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa28,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa29,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa30,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa31,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa32,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa33,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa34,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa35,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa36,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa37,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa38,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa39,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa40,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa41,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa42,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa43,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa44,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa45,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa46,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa47,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa48,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa49,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa50,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');
+  update(usa51,'10','15','20','30','40','50','60','80','100','150','200','250','300','350');*/
+  
+  
+var map2 = new Datamap({    //suicide
+  element: document.getElementById('container2'),
   scope: 'usa',
   fills: {
 			'350+': '#B40404',
@@ -833,158 +1036,158 @@ var map3 = new Datamap({    //suicide
     UNKNOWN: 'grey',
     defaultFill: 'grey'
   },
-  data: {
+ data: {
     <!--Alabama-->
     AL: {
-      fillKey: '55-60'
+      fillKey: '30-40'
     },
     <!--Alaska-->
     AK: {
-      fillKey:'UNKNOWN'
+      fillKey: '10-15'
     },
     <!--Arizona-->
     AZ: {
-      fillKey:'75-80'
+      fillKey: '60-80'
     },
     <!--Arkansas-->
     AR: {
-      fillKey:'35-40'
+      fillKey: '20-30'
     },
     <!--California-->
     CA: {
-      fillKey: '85+'
+      fillKey: '300-350'
     },
     <!--Colorado-->
     CO: {
-      fillKey: '70-75'
+      fillKey: '60-80'
     },
     <!--Connecticut-->
     CT: {
-      fillKey: '80-85'
+      fillKey: '20-30'
     },
     <!--Delaware-->
     DE: {
-      fillKey: '85+'
+      fillKey: '15-20'
     },
     <!--Florida-->
     FL: {
-      fillKey: '85+'
+      fillKey: '200-250'
     },
     <!--Georgia-->
     GA: {
-      fillKey: '60-65'
+      fillKey: '60-80'
     },
     <!--Hawaii-->
     HI: {
-      fillKey: 'UNKNOWN'
+      fillKey: '10-15'
     },
     <!--Idaho-->
     ID: {
-      fillKey: '80-85'
+      fillKey: '15-20'
     },
     <!--Illinois-->
     IL: {
-      fillKey: '65-70'
+      fillKey: '60-80'
     },
     <!--Indiana-->
     IN: {
-      fillKey: '85+'
+      fillKey: '50-60'
     },
     <!--Iowa-->
     IA: {
-      fillKey: '85+'
+      fillKey: '30-40'
     },
     <!--Kansas-->
     KS: {
-      fillKey: '85+'
+      fillKey: '30-40'
     },
     <!--Kentucky-->
     KY: {
-      fillKey: '85+'
+      fillKey: '50-60'
     },
     <!--Lousiana-->
     LA: {
-      fillKey: '85+'
+      fillKey: '40-50'
     },
     <!--Maine-->
     ME: {
-      fillKey: '85+'
+      fillKey: '15-20'
     },
     <!--Maryland-->
     MD: {
-      fillKey: '85+'
+      fillKey: '30-40'
     },
     <!--Massachussets-->
     MA: {
-      fillKey: '85+'
+      fillKey: '30-40'
     },
     <!--Michigan-->
     MI: {
-      fillKey: '85+'
+      fillKey: '100-150'
     },
     <!--Minnesota-->
     MN: {
-      fillKey: '85+'
+      fillKey: '40-50'
     },
     <!--Mississippi-->
     MS: {
-      fillKey: '85+'
+      fillKey: '30-40'
     },
     <!--Misouri-->
     MO: {
-      fillKey: '85+'
+      fillKey: '60-80'
     },
     <!--Montana-->
     MT: {
-      fillKey: '85+'
+      fillKey: '10-15'
     },
     <!--Nebraska-->
     NE: {
-      fillKey: '85+'
+      fillKey: '15-20'
     },
     <!--Nevada-->
     NV: {
-      fillKey: '85+'
+      fillKey: '40-50'
     },
     <!--New Hampshire-->
     NH: {
-      fillKey: '85+'
+      fillKey: '10-15'
     },
     <!--New Jersey-->
     NJ: {
-      fillKey: '60-65'
+      fillKey: '50-60'
     },
     <!--New Mexico-->
     NM: {
-      fillKey: '85+'
+      fillKey: '30-40'
     },
     <!--New York-->
     NY: {
-      fillKey: '65-70'
+      fillKey: '80-100'
     },
     <!--North Carolina-->
     NC: {
-      fillKey: '85+'
+      fillKey: '80-100'
     },
     <!--North Dakota-->
     ND: {
-      fillKey: '85+'
+      fillKey: '10-15'
     },
     <!--Ohio-->
     OH: {
-      fillKey: '85+'
+      fillKey: '100-150'
     },
     <!--Oklahoma-->
     OK: {
-      fillKey: '85+'
+      fillKey: '40-50'
     },
     <!--Oregon-->
     OR: {
-      fillKey: '85+'
+      fillKey: '50-60'
     },
     <!--Pennsylvania-->
     PA: {
-      fillKey: '30-35'
+      fillKey: '100-150'
     },
     <!--Rhode Island-->
     RI: {
@@ -992,53 +1195,161 @@ var map3 = new Datamap({    //suicide
     },
     <!--South Carolina-->
     SC: {
-      fillKey: '85+'
+      fillKey: '40-50'
     },
     <!--South Dakota-->
     SD: {
-      fillKey: '85+'
+      fillKey: '10-15'
     },
     <!--Tennessee-->
     TN: {
-      fillKey: '40-45'
+      fillKey: '60-80'
     },
     <!--Texas-->
     TX: {
-      fillKey: '85+'
+      fillKey: '200-250'
     },
     <!--Utha-->
     UT: {
-      fillKey: '70-75'
+      fillKey: '30-40'
     },
     <!--Vermont-->
     VT: {
-      fillKey: '85+'
+      fillKey: 'UNKNOWN'
     },
     <!--Virginia-->
     VA: {
-      fillKey: '55-60'
+      fillKey: '60-80'
     },
     <!--Washington-->
     WA: {
-      fillKey: '85+'
+      fillKey: '60-80'
     },
     <!--West Virginia-->
     WV: {
-      fillKey: '65-70'
+      fillKey: '20-30'
     },
     <!--Wisconsin-->
     WI: {
-      fillKey: '85+'
+      fillKey: '20-30'
     },
     <!--Wyoming-->
     WY: {
-      fillKey: '85+'
+      fillKey: 'UNKNOWN'
     }
   }
 });
+}
 
-var map4 = new Datamap({    //car crashes
-  element: document.getElementById('container4'),
+if($("input[name='data2']:checked").val()=="car"){
+
+ usa1;
+ usa2;
+ usa3;
+ usa4;
+ usa5;
+ usa6;
+ usa7;
+ usa8='300-350';
+ usa9;
+ usa10;
+ usa11;
+ usa12;
+ usa13;
+ usa14;
+ usa15;
+ usa16;
+ usa17;
+ usa18;
+ usa19;
+ usa20;
+ usa21;
+ usa22;
+ usa23;
+ usa24;
+ usa25;
+ usa26;
+ usa27;
+ usa28;
+ usa29;
+ usa30;
+ usa31;
+ usa32;
+ usa33;
+ usa34;
+ usa35;
+ usa36;
+ usa37;
+ usa38;
+ usa39;
+ usa40;
+ usa41;
+ usa42;
+ usa43;
+ usa44;
+ usa45;
+ usa46;
+ usa47;
+ usa48;
+ usa49;
+ usa50;
+ usa51;
+ 
+ 
+  /*update(usa1,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa2,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa3,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa4,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa5,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa6,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa7,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa8,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa9,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa10,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa11,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa12,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa13,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa14,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa15,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa16,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa17,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa18,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa19,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa20,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa21,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa22,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa23,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa24,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa25,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa26,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa27,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa28,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa29,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa30,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa31,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa32,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa33,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa34,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa35,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa36,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa37,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa38,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa39,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa40,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa41,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa42,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa43,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa44,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa45,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa46,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa47,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa48,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa49,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa50,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');
+  update(usa51,'10','20','30','40','60','80','100','125','150','200','250','300','350','400');*/
+ 
+	map2 = new Datamap({    //car crashes
+  element: document.getElementById('container2'),
   scope: 'usa',
   fills: {
 			'400+':     '#B40404',
@@ -1062,155 +1373,155 @@ var map4 = new Datamap({    //car crashes
   data: {
     <!--Alabama-->
     AL: {
-      fillKey: '55-60'
+      fillKey: '100-125'
     },
     <!--Alaska-->
     AK: {
-      fillKey:'UNKNOWN'
+      fillKey: 'UNKNOWN'
     },
     <!--Arizona-->
     AZ: {
-      fillKey:'75-80'
+      fillKey: '80-100'
     },
     <!--Arkansas-->
     AR: {
-      fillKey:'35-40'
+      fillKey: '40-60'
     },
     <!--California-->
     CA: {
-      fillKey: '85+'
+      fillKey: '300-350'
     },
     <!--Colorado-->
     CO: {
-      fillKey: '70-75'
+      fillKey: '60-80'
     },
     <!--Connecticut-->
     CT: {
-      fillKey: '80-85'
+      fillKey: '10-20'
     },
     <!--Delaware-->
     DE: {
-      fillKey: '85+'
+      fillKey: 'UNKNOWN'
     },
     <!--Florida-->
     FL: {
-      fillKey: '85+'
+      fillKey: '250-300'
     },
     <!--Georgia-->
     GA: {
-      fillKey: '60-65'
+      fillKey: '100-125'
     },
     <!--Hawaii-->
     HI: {
-      fillKey: 'UNKNOWN'
+      fillKey: '10-20'
     },
     <!--Idaho-->
     ID: {
-      fillKey: '80-85'
+      fillKey: '10-20'
     },
     <!--Illinois-->
     IL: {
-      fillKey: '65-70'
+      fillKey: '100-125'
     },
     <!--Indiana-->
     IN: {
-      fillKey: '85+'
+      fillKey: '60-80'
     },
     <!--Iowa-->
     IA: {
-      fillKey: '85+'
+      fillKey: '10-20'
     },
     <!--Kansas-->
     KS: {
-      fillKey: '85+'
+      fillKey: '30-40'
     },
     <!--Kentucky-->
     KY: {
-      fillKey: '85+'
+      fillKey: '40-60'
     },
     <!--Lousiana-->
     LA: {
-      fillKey: '85+'
+      fillKey: '100-125'
     },
     <!--Maine-->
     ME: {
-      fillKey: '85+'
+      fillKey: '10-20'
     },
     <!--Maryland-->
     MD: {
-      fillKey: '85+'
+      fillKey: '60-80'
     },
     <!--Massachussets-->
     MA: {
-      fillKey: '85+'
+      fillKey: '30-40'
     },
     <!--Michigan-->
     MI: {
-      fillKey: '85+'
+      fillKey: '60-80'
     },
     <!--Minnesota-->
     MN: {
-      fillKey: '85+'
+      fillKey: '30-40'
     },
     <!--Mississippi-->
     MS: {
-      fillKey: '85+'
+      fillKey: '60-80'
     },
     <!--Misouri-->
     MO: {
-      fillKey: '85+'
+      fillKey: '80-100'
     },
     <!--Montana-->
     MT: {
-      fillKey: '85+'
+      fillKey: '20-30'
     },
     <!--Nebraska-->
     NE: {
-      fillKey: '85+'
+      fillKey: '10-20'
     },
     <!--Nevada-->
     NV: {
-      fillKey: '85+'
+      fillKey: '20-30'
     },
     <!--New Hampshire-->
     NH: {
-      fillKey: '85+'
+      fillKey: 'UNKNOWN'
     },
     <!--New Jersey-->
     NJ: {
-      fillKey: '60-65'
+      fillKey: '40-60'
     },
     <!--New Mexico-->
     NM: {
-      fillKey: '85+'
+      fillKey: '20-30'
     },
     <!--New York-->
     NY: {
-      fillKey: '65-70'
+      fillKey: '80-100'
     },
     <!--North Carolina-->
     NC: {
-      fillKey: '85+'
+      fillKey: '60-80'
     },
     <!--North Dakota-->
     ND: {
-      fillKey: '85+'
+      fillKey: '10-20'
     },
     <!--Ohio-->
     OH: {
-      fillKey: '85+'
+      fillKey: '100-125'
     },
     <!--Oklahoma-->
     OK: {
-      fillKey: '85+'
+      fillKey: '40-60'
     },
     <!--Oregon-->
     OR: {
-      fillKey: '85+'
+      fillKey: '30-40'
     },
     <!--Pennsylvania-->
     PA: {
-      fillKey: '30-35'
+      fillKey: '100-125'
     },
     <!--Rhode Island-->
     RI: {
@@ -1218,53 +1529,110 @@ var map4 = new Datamap({    //car crashes
     },
     <!--South Carolina-->
     SC: {
-      fillKey: '85+'
+      fillKey: '60-80'
     },
     <!--South Dakota-->
     SD: {
-      fillKey: '85+'
+      fillKey: '10-'
     },
     <!--Tennessee-->
     TN: {
-      fillKey: '40-45'
+      fillKey: '100-125'
     },
     <!--Texas-->
     TX: {
-      fillKey: '85+'
+      fillKey: '300-350'
     },
     <!--Utha-->
     UT: {
-      fillKey: '70-75'
+      fillKey: '20-30'
     },
     <!--Vermont-->
     VT: {
-      fillKey: '85+'
+      fillKey: 'UNKNOWN'
     },
     <!--Virginia-->
     VA: {
-      fillKey: '55-60'
+      fillKey: '60-80'
     },
     <!--Washington-->
     WA: {
-      fillKey: '85+'
+      fillKey: '60-80'
     },
     <!--West Virginia-->
     WV: {
-      fillKey: '65-70'
+      fillKey: '30-40'
     },
     <!--Wisconsin-->
     WI: {
-      fillKey: '85+'
+      fillKey: '40-60'
     },
     <!--Wyoming-->
     WY: {
-      fillKey: '85+'
+      fillKey: 'UNKNOWN'
     }
   }
 });
+}
 
-var map5 = new Datamap({    //air pollution
-  element: document.getElementById('container5'),
+if($("input[name='data2']:checked").val()=="air"){
+
+ 
+ 
+  /*update(usa1,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa2,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa3,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa4,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa5,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa6,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa7,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa8,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa9,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa10,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa11,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa12,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa13,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa14,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa15,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa16,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa17,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa18,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa19,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa20,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa21,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa22,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa23,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa24,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa25,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa26,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa27,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa28,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa29,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa30,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa31,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa32,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa33,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa34,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa35,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa36,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa37,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa38,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa39,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa40,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa41,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa42,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa43,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa44,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa45,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa46,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa47,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa48,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa49,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa50,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');
+  update(usa51,'5','7','8','9','10','11','12','13','14','15','17','19','21','23');*/
+  
+	map2 = new Datamap({    //air pollution
+  element: document.getElementById('container2'),
   scope: 'usa',
   fills: {	'23+':     '#B40404',
             '21-23': '#DF0101',
@@ -1285,46 +1653,47 @@ var map5 = new Datamap({    //air pollution
     UNKNOWN: 'grey',
     defaultFill: 'grey'
   },
+ 
   data: {
     <!--Alabama-->
     AL: {
-      fillKey: '55-60'
+      fillKey: '12-13'
     },
     <!--Alaska-->
     AK: {
-      fillKey:'UNKNOWN'
+      fillKey: 'UNKNOWN'
     },
     <!--Arizona-->
     AZ: {
-      fillKey:'75-80'
+      fillKey: '11-12'
     },
     <!--Arkansas-->
     AR: {
-      fillKey:'35-40'
+      fillKey: '9-10'
     },
     <!--California-->
     CA: {
-      fillKey: '85+'
+      fillKey: '12-13'
     },
     <!--Colorado-->
     CO: {
-      fillKey: '70-75'
+      fillKey: '8-9'
     },
     <!--Connecticut-->
     CT: {
-      fillKey: '80-85'
+      fillKey: '12-13'
     },
     <!--Delaware-->
     DE: {
-      fillKey: '85+'
+      fillKey: '12-13'
     },
     <!--Florida-->
     FL: {
-      fillKey: '85+'
+      fillKey: '9-10'
     },
     <!--Georgia-->
     GA: {
-      fillKey: '60-65'
+      fillKey: '12-13'
     },
     <!--Hawaii-->
     HI: {
@@ -1332,165 +1701,221 @@ var map5 = new Datamap({    //air pollution
     },
     <!--Idaho-->
     ID: {
-      fillKey: '80-85'
+      fillKey: '9-10'
     },
     <!--Illinois-->
     IL: {
-      fillKey: '65-70'
+      fillKey: '11-12'
     },
     <!--Indiana-->
     IN: {
-      fillKey: '85+'
+      fillKey: '12-13'
     },
     <!--Iowa-->
     IA: {
-      fillKey: '85+'
+      fillKey: '9-10'
     },
     <!--Kansas-->
     KS: {
-      fillKey: '85+'
+      fillKey: '9-10'
     },
     <!--Kentucky-->
     KY: {
-      fillKey: '85+'
+      fillKey: '11-12'
     },
     <!--Lousiana-->
     LA: {
-      fillKey: '85+'
+      fillKey: '10-11'
     },
     <!--Maine-->
     ME: {
-      fillKey: '85+'
+      fillKey: '11-12'
     },
     <!--Maryland-->
     MD: {
-      fillKey: '85+'
+      fillKey: '13-14'
     },
     <!--Massachussets-->
     MA: {
-      fillKey: '85+'
+      fillKey: '12-13'
     },
     <!--Michigan-->
     MI: {
-      fillKey: '85+'
+      fillKey: '11-12'
     },
     <!--Minnesota-->
     MN: {
-      fillKey: '85+'
+      fillKey: '10-11'
     },
     <!--Mississippi-->
     MS: {
-      fillKey: '85+'
+      fillKey: '11-12'
     },
     <!--Misouri-->
     MO: {
-      fillKey: '85+'
+      fillKey: '9-10'
     },
     <!--Montana-->
     MT: {
-      fillKey: '85+'
+      fillKey: '9-10'
     },
     <!--Nebraska-->
     NE: {
-      fillKey: '85+'
+      fillKey: '9-10'
     },
     <!--Nevada-->
     NV: {
-      fillKey: '85+'
+      fillKey: '10-11'
     },
     <!--New Hampshire-->
     NH: {
-      fillKey: '85+'
+      fillKey: '11-12'
     },
     <!--New Jersey-->
     NJ: {
-      fillKey: '60-65'
+      fillKey: '12-13'
     },
     <!--New Mexico-->
     NM: {
-      fillKey: '85+'
+      fillKey: '5-7'
     },
     <!--New York-->
     NY: {
-      fillKey: '65-70'
+      fillKey: '10-11'
     },
     <!--North Carolina-->
     NC: {
-      fillKey: '85+'
+      fillKey: '11-12'
     },
     <!--North Dakota-->
     ND: {
-      fillKey: '85+'
+      fillKey: '9-10'
     },
     <!--Ohio-->
     OH: {
-      fillKey: '85+'
+      fillKey: '12-13'
     },
     <!--Oklahoma-->
     OK: {
-      fillKey: '85+'
+      fillKey: '7-8'
     },
     <!--Oregon-->
     OR: {
-      fillKey: '85+'
+      fillKey: '7-8'
     },
     <!--Pennsylvania-->
     PA: {
-      fillKey: '30-35'
+      fillKey: '12-13'
     },
     <!--Rhode Island-->
     RI: {
-      fillKey: 'UNKNOWN'
+      fillKey: '12-13'
     },
     <!--South Carolina-->
     SC: {
-      fillKey: '85+'
+      fillKey: '11-12'
     },
     <!--South Dakota-->
     SD: {
-      fillKey: '85+'
+      fillKey: '9-10'
     },
     <!--Tennessee-->
     TN: {
-      fillKey: '40-45'
+      fillKey: '11-12'
     },
     <!--Texas-->
     TX: {
-      fillKey: '85+'
+      fillKey: '8-9'
     },
     <!--Utha-->
     UT: {
-      fillKey: '70-75'
+      fillKey: '9-10'
     },
     <!--Vermont-->
     VT: {
-      fillKey: '85+'
+      fillKey: '10-11'
     },
     <!--Virginia-->
     VA: {
-      fillKey: '55-60'
+      fillKey: '12-13'
     },
     <!--Washington-->
     WA: {
-      fillKey: '85+'
+      fillKey: '7-8'
     },
     <!--West Virginia-->
     WV: {
-      fillKey: '65-70'
+      fillKey: '11-12'
     },
     <!--Wisconsin-->
     WI: {
-      fillKey: '85+'
+      fillKey: '11-12'
     },
     <!--Wyoming-->
     WY: {
-      fillKey: '85+'
+      fillKey: '9-10'
     }
   }
 });
+}
 
-var map6 = new Datamap({    //natality
-  element: document.getElementById('container6'),
+if($("input[name='data2']:checked").val()=="natality"){
+
+
+  /*update(usa1,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa2,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa3,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa4,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa5,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa6,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa7,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa8,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa9,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa10,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa11,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa12,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa13,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa14,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa15,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa16,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa17,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa18,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa19,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa20,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa21,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa22,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa23,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa24,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa25,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa26,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa27,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa28,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa29,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa30,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa31,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa32,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa33,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa34,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa35,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa36,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa37,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa38,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa39,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa40,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa41,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa42,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa43,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa44,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa45,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa46,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa47,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa48,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa49,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa50,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');
+  update(usa51,'10','20','30','40','50','75','100','150','200','300','400','500','650','800');*/
+
+ map2 = new Datamap({    //natality
+  element: document.getElementById('container2'),
   scope: 'usa',
   fills: {	 '800+':     '#B40404',
             '650-800': '#DF0101',
@@ -1512,209 +1937,212 @@ var map6 = new Datamap({    //natality
     UNKNOWN: 'grey',
     defaultFill: 'grey'
   },
+ 
+  
   data: {
     <!--Alabama-->
     AL: {
-      fillKey: '55-60'
+      fillKey: '650-800'
     },
     <!--Alaska-->
     AK: {
-      fillKey:'UNKNOWN'
+      fillKey: '150-200'
     },
     <!--Arizona-->
     AZ: {
-      fillKey:'75-80'
+      fillKey: '800+'
     },
     <!--Arkansas-->
     AR: {
-      fillKey:'35-40'
+      fillKey: '500-650'
     },
     <!--California-->
     CA: {
-      fillKey: '85+'
+      fillKey: '800+'
     },
     <!--Colorado-->
     CO: {
-      fillKey: '70-75'
+      fillKey: '800+'
     },
     <!--Connecticut-->
     CT: {
-      fillKey: '80-85'
+      fillKey: '650-800'
     },
     <!--Delaware-->
     DE: {
-      fillKey: '85+'
+      fillKey: '150-200'
     },
     <!--Florida-->
     FL: {
-      fillKey: '85+'
+      fillKey: '800+'
     },
     <!--Georgia-->
     GA: {
-      fillKey: '60-65'
+      fillKey: '800+'
     },
     <!--Hawaii-->
     HI: {
-      fillKey: 'UNKNOWN'
+      fillKey: '200-300'
     },
     <!--Idaho-->
     ID: {
-      fillKey: '80-85'
+      fillKey: '300-400'
     },
     <!--Illinois-->
     IL: {
-      fillKey: '65-70'
+      fillKey: '800+'
     },
     <!--Indiana-->
     IN: {
-      fillKey: '85+'
+      fillKey: '800+'
     },
     <!--Iowa-->
     IA: {
-      fillKey: '85+'
+      fillKey: '500-650'
     },
     <!--Kansas-->
     KS: {
-      fillKey: '85+'
+      fillKey: '500-650'
     },
     <!--Kentucky-->
     KY: {
-      fillKey: '85+'
+      fillKey: '650-800'
     },
     <!--Lousiana-->
     LA: {
-      fillKey: '85+'
+      fillKey: '650-800'
     },
     <!--Maine-->
     ME: {
-      fillKey: '85+'
+      fillKey: '200-300'
     },
     <!--Maryland-->
     MD: {
-      fillKey: '85+'
+      fillKey: '800+'
     },
     <!--Massachussets-->
     MA: {
-      fillKey: '85+'
+      fillKey: '800+'
     },
     <!--Michigan-->
     MI: {
-      fillKey: '85+'
+      fillKey: '800+'
     },
     <!--Minnesota-->
     MN: {
-      fillKey: '85+'
+      fillKey: '800+'
     },
     <!--Mississippi-->
     MS: {
-      fillKey: '85+'
+      fillKey: '500-650'
     },
     <!--Misouri-->
     MO: {
-      fillKey: '85+'
+      fillKey: '800+'
     },
     <!--Montana-->
     MT: {
-      fillKey: '85+'
+      fillKey: '150-200'
     },
     <!--Nebraska-->
     NE: {
-      fillKey: '85+'
+      fillKey: '400-500'
     },
     <!--Nevada-->
     NV: {
-      fillKey: '85+'
+      fillKey: '500-650'
     },
     <!--New Hampshire-->
     NH: {
-      fillKey: '85+'
+      fillKey: '200-300'
     },
     <!--New Jersey-->
     NJ: {
-      fillKey: '60-65'
+      fillKey: '800+'
     },
     <!--New Mexico-->
     NM: {
-      fillKey: '85+'
+      fillKey: '400-500'
     },
     <!--New York-->
     NY: {
-      fillKey: '65-70'
+      fillKey: '800+'
     },
     <!--North Carolina-->
     NC: {
-      fillKey: '85+'
+      fillKey: '800+'
     },
     <!--North Dakota-->
     ND: {
-      fillKey: '85+'
+      fillKey: '75-100'
     },
     <!--Ohio-->
     OH: {
-      fillKey: '85+'
+      fillKey: '800+'
     },
     <!--Oklahoma-->
     OK: {
-      fillKey: '85+'
+      fillKey: '650-800'
     },
     <!--Oregon-->
     OR: {
-      fillKey: '85+'
+      fillKey: '800+'
     },
     <!--Pennsylvania-->
     PA: {
-      fillKey: '30-35'
+      fillKey: '800+'
     },
     <!--Rhode Island-->
     RI: {
-      fillKey: 'UNKNOWN'
+      fillKey: '200-300'
     },
     <!--South Carolina-->
     SC: {
-      fillKey: '85+'
+      fillKey: '800+'
     },
     <!--South Dakota-->
     SD: {
-      fillKey: '85+'
+      fillKey: '150-200'
     },
     <!--Tennessee-->
     TN: {
-      fillKey: '40-45'
+      fillKey: '800+'
     },
     <!--Texas-->
     TX: {
-      fillKey: '85+'
+      fillKey: '800+'
     },
     <!--Utha-->
     UT: {
-      fillKey: '70-75'
+      fillKey: '650-800'
     },
     <!--Vermont-->
     VT: {
-      fillKey: '85+'
+      fillKey: '50-75'
     },
     <!--Virginia-->
     VA: {
-      fillKey: '55-60'
+      fillKey: '800+'
     },
     <!--Washington-->
     WA: {
-      fillKey: '85+'
+      fillKey: '800+'
     },
     <!--West Virginia-->
     WV: {
-      fillKey: '65-70'
+      fillKey: '200-300'
     },
     <!--Wisconsin-->
     WI: {
-      fillKey: '85+'
+      fillKey: '800+'
     },
     <!--Wyoming-->
     WY: {
-      fillKey: '85+'
+      fillKey: '30-40'
     }
   }
 });
+}
 
 </script>
 

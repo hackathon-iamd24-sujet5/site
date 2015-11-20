@@ -16,7 +16,9 @@ function requete() {
 	$sql2;
 	$data = array();
 	$data2 = array();
-
+	
+	$asked1 = $data1;
+	$asked2 = $data2;
 
 
 	// on se connecte � MySQL
@@ -27,41 +29,41 @@ function requete() {
 		die ( 'Erreur : ' . $e->getMessage () );
 	}
 
-	if($asked == "Tmin"){
+	if($asked1 == "Tmin"){
 
 		// si ça marche pas, hardcode tout ça
 
 		$table = "meteo";
 		mysql_select_db ( 'hackathon' , $db );      // selection de base
 
-		$sql = "SELECT COLUMN_NAME FROM meteo WHERE COLUMN_NAME like 'day%'";
+		$sql = "SELECT COLUMN_NAME FROM meteo WHERE COLUMN_NAME like 'day%' AND WHERE Year="+$year;
 		$req = $db->query($sql);
 		$data = $req->fetch();
 
 		// print data si possible pour debugger
 
-		$sql2 = "SELECT State,"+$data+" FROM meteo WHERE Year="+$year+"element=Tmin";
+		$sql2 = "SELECT State,"+$data+" FROM meteo WHERE Year="+$year+" AND element=Tmin";
 		$req2 = $db->query($sql2);
 		$data2 = $req->fetch();
 
 		$moyenne = array_sum($data2) / count($data2);
 
-	}else if($asked == "Tmax"){
+	}else if($asked1 == "Tmax"){
 
 		$table = "meteo";
 		mysql_select_db ( 'hackathon' , $db );
 
-		$sql = "SELECT COLUMN_NAME FROM meteo WHERE COLUMN_NAME like 'day%'";
+		$sql = "SELECT COLUMN_NAME FROM meteo WHERE COLUMN_NAME like 'day%'  AND WHERE Year="+$year;
 		$req = $db->query($sql);
 		$data = $req->fetch();
 
-		$sql2 = "SELECT State,"+$data+" FROM meteo WHERE Year="+$year+"element=Tmax";
+		$sql2 = "SELECT State,"+$data+" FROM meteo WHERE Year="+$year+" AND element=Tmax";
 		$req2 = $db->query($sql2);
 		$data2 = $req->fetch();
 
 		$moyenne = array_sum($data2) / count($data2);
 
-	}else if($asked == "car"){
+	}else if($asked2 == "car"){
 
 		$table = "acc";
 		mysql_select_db ( 'hackathon' , $db );
@@ -70,7 +72,7 @@ function requete() {
 		$req = $db->query($sql);
 		$data = $req->fetch();
 
-	}else if($asked == "suicide"){
+	}else if($asked2 == "suicide"){
 
 		$table = "suicide";
 		mysql_select_db ( 'hackathon' , $db );
@@ -79,7 +81,7 @@ function requete() {
 		$req = $db->query($sql);
 		$data = $req->fetch();
 
-	}else if($asked == "air"){
+	}else if($asked2 == "air"){
 
 		$table = "particules";
 		mysql_select_db ( 'hackathon' , $db );
@@ -88,7 +90,7 @@ function requete() {
 		$req = $db->query($sql);
 		$data = $req->fetch();
 
-	}else if($asked == "natality"){
+	}else if($asked2 == "natality"){
 
 		$table = "natality";
 		mysql_select_db ( 'hackathon' , $db );
